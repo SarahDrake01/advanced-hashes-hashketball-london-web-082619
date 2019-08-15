@@ -226,7 +226,7 @@ end
 
 def most_points_scored
   most_points = 0
-  mps = ''
+  mps = ''   #mps = most points scored
   game_hash.each do |home, away|
     away[:players].each do |player|
       points = player[:points]
