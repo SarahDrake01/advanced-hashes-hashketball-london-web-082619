@@ -212,7 +212,6 @@ end
 def biggest_shoe(players)
   player_number_with_biggest_shoe = ""
   biggest_shoe_size = 0
-binding.pry
   players[:home][:players].each do |name, player|
     if player[:shoe_size] > biggest_shoe_size
       player_number_with_biggest_shoe = name
