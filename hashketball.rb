@@ -209,16 +209,16 @@ end
 #in this case we want to delete if when you iterat and got your key values
 #so I'm going to delete any key has :player_name, and return the new_hash
 #without the :player_name its value
-def biggest_shoe(players)
+def biggest_shoe(stats)
   player_number_with_biggest_shoe = ""
   biggest_shoe_size = 0
-  players[:home][:players].each do |name, player|
+  stats[:home][:players].each do |name, player|
     if player[:shoe_size] > biggest_shoe_size
       player_number_with_biggest_shoe = name
       biggest_shoe_size = player[:shoe_size]
     end
   end
-  players[:away][:players].each do |name, player|
+  stats[:away][:players].each do |name, player|
     if player[:shoe_size] > biggest_shoe_size
       player_number_with_biggest_shoe = name
       biggest_shoe_size = player[:shoe_size]
