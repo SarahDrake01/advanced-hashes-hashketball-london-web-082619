@@ -212,8 +212,8 @@ end
 def big_shoe_rebounds
   biggest = 0
   rebounds = 0
-  game_hash.each do |home_away, keys|
-    keys[:players].each do |player|
+  game_hash.each do |home, away|
+    away[:players].each do |player|
       size = player[:shoe]
       if size > biggest
         biggest = size
@@ -227,8 +227,8 @@ end
 def most_points_scored
   most_points = 0
   mvp = ''
-  game_hash.each do |home_away, keys|
-    keys[:players].each do |player|
+  game_hash.each do |home, away|
+    away[:players].each do |player|
       points = player[:points]
       if points > most_points
         most_points = points
@@ -242,10 +242,10 @@ end
 def winning_team
   total_points = 0
   win_team = ''
-  game_hash.each do |home_away, keys|
+  game_hash.each do |home, away|
     team_points = 0
-    team_name = game_hash[home_away][:team_name]
-    keys[:players].each do |player|
+    team_name = game_hash[home][:team_name]
+    away[:players].each do |player|
       points = player[:points]
       team_points += points
     end
@@ -257,8 +257,8 @@ end
 def player_with_longest_name
   longest = ''
   longest_length = 0
-  game_hash.each do |home_away, keys|
-    keys[:players].each do |player|
+  game_hash.each do |home, away|
+    away[:players].each do |player|
       name_length = player[:player_name].length
       longest, longest_length = player[:player_name], name_length if name_length > longest_length
     end
@@ -270,8 +270,8 @@ end
  def long_name_steals_a_ton?
   steals_most = ''
   most_steals = 0
-  game_hash.each do |home_away, keys|
-    keys[:players].each do |player|
+  game_hash.each do |home, away|
+    away[:players].each do |player|
       steals_most, most_steals = player[:player_name], player[:steals] if player[:steals] > most_steals
     end
   end
